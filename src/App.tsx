@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PopConfirm from './mods/PopConfirm';
+import styles from './App.module.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const handleConfirm = () => {
+		console.log('confirm');
+	};
+
+	const handleCancel = () => {
+		console.log('cancel');
+	};
+
+	return (
+		<div className={styles.App}>
+			<div className={styles.box}>
+				<PopConfirm
+					title={'确认删除?'}
+					desc={'删除后不可恢复'}
+					confirmText={'ok'}
+					cancelText={'cancel'}
+					onConfirm={handleConfirm}
+					onCancel={handleCancel}
+				>
+					<span>test text</span>
+				</PopConfirm>
+			</div>
+		</div>
+	);
 }
 
 export default App;
